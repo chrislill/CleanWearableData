@@ -54,7 +54,7 @@ measurements <- cbind(measurements, std = measurements.std$std)
 # Produce the averages of each measure grouped by activity and subject
 averages <- measurements %>%
     group_by(activity, subject, measure) %>%
-    summarise(mean = mean(mean)) 
+    summarise(average.mean = mean(mean), average.std = mean(std)) 
 
 # Write the data set out as a text file
 write.table(averages, "averages.txt", row.name=FALSE)
